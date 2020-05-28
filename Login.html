@@ -3,14 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+  <style>
+    .popup{
+           position: fixed;
+           top: 0; bottom: 0;
+           left: 0; right: 0;
+           margim: auto;
+           width: 300px;
+           height: 180px;
+           padding: 15px;
+           border: solid 1px #4c4d4f;
+           background: #BEBEBE;
+           display: nome;
+          }
+  </style>
+  <script type="text/javascript">
+    function abrir{
+      document.getElementById{"popup"}.style.display = "block";
+                  }
+  </script>
+  
+</head>
 <body>
+  <div id="popup" class="popup">
+    <p>Acesso autorizado clique agora em continuar</p>
+  </div>
 <form method="POST">
 <fieldset><legend>Login de Cliente</legend>
 <p><label for="a">Nome de usuario:</p>
 <p><input type="text" id="a" size=20 placeholder="Digite seu nome de usuario aqui" required/></label></p>
 <p><label for="b">senha:</p>
 <p><input type="password" id="b" size=20 placeholder="Digite sua senha de aqui" required/></label></p>
-<p><a href="https://diego78795.github.io/site.html"><input type="button" value="Login" /></a></p>
+<p><a href="javascript: abrir{}"><input type="button" value="Login" /></a></p>
+<p><a href="https://diego78795.github.io/site.html"><input type="button" value="Continuar" /></a></p>
 </fieldset>
 </body>
 </html>
