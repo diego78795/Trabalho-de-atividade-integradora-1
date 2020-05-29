@@ -16,12 +16,18 @@
            background: #BEBEBE;
            display: none;
           }
+     .c{
+         display: none;
+         }
   </style>
+ 
   <script type="text/javascript">
     function abrir(){
       document.getElementById('popup').style.display = 'block';
+      document.getElementById('c').style.display = 'block';
                   }
   </script>
+ 
 </head>
 <body>
  <div id="popup" class="popup">
@@ -39,7 +45,7 @@
 
 <p><input type="reset" value="Limpar" />
  <p><a href="javascript: abrir();"><input type="button" value="Cadastrar" /></a>
- <a href="https://diego78795.github.io/site.html"><input type="button" value="Continuar" /></a>
+ <a href="https://diego78795.github.io/site.html"><input id="c" class="c" type="button" value="Continuar" /></a>
 </p>
 
 </fieldset>
