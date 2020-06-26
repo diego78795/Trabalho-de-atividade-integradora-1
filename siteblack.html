@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Stonks Ações</title>
+<?php
+include ('verificador.php');
+include ('tabela.php');
+include('notificacao.php');
+?>
+<script src="notificacao.js"></script>
 <style>
 body{
      background-color:black;
@@ -37,97 +43,141 @@ tr{
 	border-color:red;
 	color:red;
   }
+#e{
+	color:white;
+  }
 </style>
 </head>
 <body>
+<?php
+if($k==1):
+?>
+<script>minhaNotificacao()</script>
+<?php
+endif;
+?>
+<h1>Ola <?php echo $_SESSION['nome']; ?></h1>
 	<center><h1>Stonks Ações</h1></center>
-<p><input type="text" size=30 placeholder="Insira o nome da empresa ou da ação">
-<input type="button" value="Pesquizar"/></p>
-<p><a href="https://diego78795.github.io/site.html"><input type="button" value="Modo escuro"/></a></p>
+	
+<form action="pesquisa.php" method="POST">
+<p><input name="pesquisa" type="text" size=30 placeholder="Insira o nome da empresa ou da ação">
+<input type="submit" value="Pesquizar"/></p>
+</form>
+
+<p><a href="/site.html"><input type="button" value="Modo claro"/></a></p>
+
+
 <center><table>
   <tr>
-    <th id="b" colspan=3>Maiores crecimentos de hoje</th>
+    <th id="b" colspan=4>Maiores crecimentos de hoje</th>
   </tr>
   
   <tr>
     <td id="b">Nome</td>
+	<td id="b">Valor</td>
 	<td id="b">Variação%</td>
 	<td id="b">Hora</td>
   </tr>
   
   <tr id="c">
-    <td id="a"><a href="https://diego78795.github.io/resumo_magazine_luiza_sa.html" target="_Blank">Magazine Luiza ON (MGLU3)</a></td>
-	<td id="a">Δ 10,46%</td>
-	<td id="a">14:53:11</td>
+    <td id="a"><a href="<?php echo $UMaior[1] ?>" target="_Blank"><?php echo $NMaior[1] ?> (<?php echo $CodMaior[1] ?>)</a></td>
+	<td id="a"><?php echo $VMaior[1] ?></td>
+	<td id="a">Δ <?php echo $CMaior[1] ?>%</td>
+	<td id="a"><?php echo $HMaior[1]?></td>
   </tr>
   
    <tr id="c">
-    <td id="a"><a href="https://diego78795.github.io/resumo_hypera_sa.html" target="_Blank">Hypera ON (HYPE3)</a></td>
-	<td id="a">Δ 8,10%</td>
-	<td id="a">14:52:35</td>
+    <td id="a"><a href="<?php echo $UMaior[2] ?>" target="_Blank"><?php echo $NMaior[2] ?> (<?php echo $CodMaior[2] ?>)</a></td>
+	<td id="a"><?php echo $VMaior[2] ?></td>
+	<td id="a">Δ <?php echo $CMaior[2] ?>%</td>
+	<td id="a"><?php echo $HMaior[2]?></td>
   </tr>
   
   <tr id="c">
-    <td id="a"><a href="https://diego78795.github.io/resumo_b2w_cia_digital.html" target="_Blank">B2W Digital ON (BTOW3)</a></td>
-	<td id="a">Δ 7,20%</td>
-	<td id="a">14:33:35</td>
+    <td id="a"><a href="<?php echo $UMaior[3] ?>" target="_Blank"><?php echo $NMaior[3] ?> (<?php echo $CodMaior[3] ?>)</a></td>
+	<td id="a"><?php echo $VMaior[3] ?></td>
+	<td id="a">Δ <?php echo $CMaior[3] ?>%</td>
+	<td id="a"><?php echo $HMaior[3]?></td>
   </tr>
   
   <tr id="c">
-    <td id="a"><a href="https://diego78795.github.io/resumo_brf_sa.html" target="_Blank">BRF ON (BRFS3)</a></td>
-	<td id="a">Δ 5,10%</td>
-	<td id="a">14:49:43</td>
+    <td id="a"><a href="<?php echo $UMaior[4] ?>" target="_Blank"><?php echo $NMaior[4] ?> (<?php echo $CodMaior[4] ?>)</a></td>
+	<td id="a"><?php echo $VMaior[4] ?></td>
+	<td id="a">Δ <?php echo $CMaior[4] ?>%</td>
+	<td id="a"><?php echo $HMaior[4]?></td>
   </tr>
   
   <tr id="c">
-    <td id="a"><a href="https://diego78795.github.io/resumo_braskem_sa.html" target="_Blank">Braskem PN (BRKM5)</a></td>
-	<td id="a">∆ 4,37%</td>
-	<td id="a">14:37:12</td>
+    <td id="a"><a href="<?php echo $UMaior[5] ?>" target="_Blank"><?php echo $NMaior[5] ?> (<?php echo $CodMaior[5] ?>)</a></td>
+	<td id="a"><?php echo $VMaior[5] ?></td>
+	<td id="a">∆ <?php echo $CMaior[5] ?>%</td>
+	<td id="a"><?php echo $HMaior[5]?></td>
   </tr>
  
 </table></center>
 <br>
 <center><table>
   <tr>
-    <th id="b" colspan=3>Maiores quedas de hoje</th>
+    <th id="b" colspan=4>Maiores quedas de hoje</th>
   </tr>
   
   <tr>
     <td id="b">Nome</td>
+	<td id="b">Valor</td>
 	<td id="b">Variação%</td>
 	<td id="b">Hora</td>
   </tr>
   
   <tr id="c">
-    <td id="d"><a href="https://diego78795.github.io/resumo_multiplan_empreendimentos_imobiliarios.html" target="_Blank">Multiplan ON (MULT3)</a></td>
-	<td id="d">∇ -5,52%</td>
-	<td id="d">15:38:21</td>
+    <td id="d"><a href="<?php echo $UMenor[1] ?>" target="_Blank"><?php echo $NMenor[1] ?> (<?php echo $CodMenor[1] ?>)</a></td>
+	<td id="d"><?php echo $VMenor[1] ?></td>
+	<td id="d">∇ <?php echo $CMenor[1] ?>%</td>
+	<td id="d"><?php echo $HMenor[1]?></td>
   </tr>
   
   <tr id="c">
-    <td id="d"><a href="https://diego78795.github.io/resumo_lojas_renner_sa.html" target="_Blank">Lojas Renner ON (LREN3)</a></td>
-	<td id="d">∇ -5,18%</td>
-	<td id="d">15:39:55</td>
+    <td id="d"><a href="<?php echo $UMenor[2] ?>" target="_Blank"><?php echo $NMenor[2] ?> (<?php echo $CodMenor[2] ?>)</a></td>
+	<td id="d"><?php echo $VMenor[2] ?></td>
+	<td id="d">∇ <?php echo $CMenor[2] ?>%</td>
+	<td id="d"><?php echo $HMenor[2]?></td>
   </tr>
   
   <tr id="c">
-    <td id="d"><a href="https://diego78795.github.io/resumo_cvc_brasil_operadora_e_agencia_de_viagens_sa.html" target="_Blank">CVC Brasil ON (CVCB3)</a></td>
-	<td id="d">∇ -4,40%</td>
-	<td id="d">15:40:41</td>
+    <td id="d"><a href="<?php echo $UMenor[3] ?>" target="_Blank"><?php echo $NMenor[3] ?> (<?php echo $CodMenor[3] ?>)</a></td>
+	<td id="d"><?php echo $VMenor[3] ?></td>
+	<td id="d">∇ <?php echo $CMenor[3] ?>%</td>
+	<td id="d"><?php echo $HMenor[3]?></td>
   </tr>
   
    <tr id="c">
-    <td id="d"><a href="https://diego78795.github.io/resumo_iguatemi_empresa_de_shopping_centers_sa.html" target="_Blank">Iguatemi ON (IGTA3)</a></td>
-	<td id="d">∇ -4,30%</td>
-	<td id="d">15:39:03</td>
+    <td id="d"><a href="<?php echo $UMenor[4] ?>" target="_Blank"><?php echo $NMenor[4] ?> (<?php echo $CodMenor[4] ?>)</a></td>
+	<td id="d"><?php echo $VMenor[4] ?></td>
+	<td id="d">∇ <?php echo $CMenor[4] ?>%</td>
+	<td id="d"><?php echo $HMenor[4]?></td>
   </tr>
   
   <tr id="c">
-    <td id="d"><a href="https://diego78795.github.io/resumo_banco_bradesco_sa_pref.html" target="_Blank">Bradesco PN (BBDC4)</a></td>
-	<td id="d">∇ -3,88%</td>
-	<td id="d">15:41:09</td>
+    <td id="d"><a href="<?php echo $UMenor[5] ?>" target="_Blank"><?php echo $NMenor[5] ?> (<?php echo $CodMenor[5] ?>)</a></td>
+	<td id="d"><?php echo $VMenor[5] ?></td>
+	<td id="d">∇ <?php echo $CMenor[5] ?>%</td>
+	<td id="d"><?php echo $HMenor[5]?></td>
   </tr>
  
 </table></center>
+
+<div>
+<form action="alarme.php" method="POST">
+<fieldset><legend><h1>Notificações</h1></legend>
+<p id="e">Codigo da ação: <select name="codigo"><option>MGLU3</option><option>BBDC4</option><option>IGTA3</option><option>CVCB3</option><option>LREN3</option><option>MULT3</option><option>BRKM5</option><option>BTOW3</option><option>BRFS3</option><option>HYPE3</option></select></p>
+<p id="e">Direção: <select name="direcao"><option>Aumentando até</option><option>Diminuindo até</option></select></p>
+<p id="e">Tipo: <select name="tipo"><option>Valor</option><option>Porcentagem</option><option>Porcentagem diaria</option></select></p>
+<p id="e"><label for="a">Valor:
+<input name="valor" type="text" id="a" size=25 placeholder="Digite valor ou a porcentagem" required /></label></p>
+<p><input type="submit" value="Notificar" /></p>
+</fieldset>
+</form>
+</div>
+
+<p><a href="logout.php"><input type="button" value="Logout" /></a></p>
 </body>
 </html>

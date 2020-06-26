@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro </title>
+ <style>
+    .popup{
+           position: fixed;
+           top: 0; bottom: 0;
+           left: 0; right: 0;
+           margim: auto;
+           width: 300px;
+           height: 100px;
+           padding: 15px;
+           border: solid 1px #4c4d4f;
+           background: #BEBEBE;
+           display: none;
+          }
+      .k{
+         display: none;
+         }
+  </style>
+ 
+  <script type="text/javascript">
+    function abrir(){
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('k').style.display = 'block';
+                  }
+  </script>
+ 
+</head>
+<body>
+ <div id="popup" class="popup">
+    <p>Cadastro concluido clique agora em continuar</p>
+  </div>
+<form action="cadastrar.php" method="POST">
+<fieldset><legend>Cadastro de Cliente</legend>
+<p><label for="a">Nome <input name="nome" type="text" id="a" size=40 placeholder="Nome Completo" maxlength=30 name="nome" required/>
+</label></p>
+<p><label for="b">Endereço: <input name="endereço" type="text" id="b" size=50 name="endereco"/></label> 
+<label for="x">Número <input name="numero" type="number" id="x" name="endereco" /></label></p>
+<p><label for="c">E-mail: <input name="email" type="email" id="c" size=50 name="email" required /></label></p>
+<p><label for="d">Senha: <input name="senha" type="password" id="d" size=30 placeholder="Até 10 dígitos" maxlength=10 name="senha"/></label></p>
+<p>Sexo: <select name="sexo"><option>Feminino</option><option>Masculino</option><option>Outros</option></select></p>
+
+<p><input type="reset" value="Limpar" />
+ <p><a href="javascript: abrir();"><input type="submit" value="Cadastrar" /></a>
+ <a href="https://diego78795.github.io/site.html"><input id="k" class="k" type="button" value="Continuar" /></a>
+</p>
+
+</fieldset>
+</form>
+</body>
+</html>
