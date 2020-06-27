@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <title>Stonks Ações</title>
 <?php
-include ('verificador.php');
-include ('tabela.php');
-include('notificacao.php');
+include ('http://d0fa41407e31.ngrok.io/verificador.php');
+include ('http://d0fa41407e31.ngrok.io/tabela.php');
+include('http://d0fa41407e31.ngrok.io/notificacao.php');
 ?>
 <script src="notificacao.js"></script>
 <style>
@@ -59,7 +59,7 @@ endif;
 <h1>Ola <?php echo $_SESSION['nome']; ?></h1>
 	<center><h1>Stonks Ações</h1></center>
 	
-<form action="pesquisa.php" method="POST">
+<form action="http://d0fa41407e31.ngrok.io/pesquisa.php" method="POST">
 <p><input name="pesquisa" type="text" size=30 placeholder="Insira o nome da empresa ou da ação">
 <input type="submit" value="Pesquizar"/></p>
 </form>
@@ -166,7 +166,7 @@ endif;
 </table></center>
 
 <div>
-<form action="alarme.php" method="POST">
+<form action="http://d0fa41407e31.ngrok.io/alarme.php" method="POST">
 <fieldset><legend><h1>Notificações</h1></legend>
 <p id="e">Codigo da ação: <select name="codigo"><option>MGLU3</option><option>BBDC4</option><option>IGTA3</option><option>CVCB3</option><option>LREN3</option><option>MULT3</option><option>BRKM5</option><option>BTOW3</option><option>BRFS3</option><option>HYPE3</option></select></p>
 <p id="e">Direção: <select name="direcao"><option>Aumentando até</option><option>Diminuindo até</option></select></p>
@@ -178,6 +178,6 @@ endif;
 </form>
 </div>
 
-<p><a href="logout.php"><input type="button" value="Logout" /></a></p>
+<p><a href="http://d0fa41407e31.ngrok.io/logout.php"><input type="button" value="Logout" /></a></p>
 </body>
 </html>
